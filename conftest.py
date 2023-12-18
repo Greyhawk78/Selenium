@@ -3,6 +3,12 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
+def pytest_configure(config):
+    config.addinivalue_line(
+        "markers", "need_review: "
+    )
+
+
 def pytest_addoption(parser):
     parser.addoption('--language', action='store', default='en',
                      help="Choose language")
